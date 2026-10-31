@@ -1,0 +1,125 @@
+/* =========================================================
+   LensaKarya Design System (Tailwind CSS v4)
+   Palet: putih, hitam elegan, abu-abu soft, aksen gold/beige
+   ========================================================= */
+
+/* Urutan layer: style bawaan template Vite berada di prioritas paling rendah. */
+@layer template, theme, base, components, utilities;
+
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+
+  --color-ink-950: #0b0b0b;
+  --color-ink-900: #121212;
+  --color-ink-800: #1c1c1c;
+  --color-ink-700: #2a2a2a;
+  --color-ink-600: #3d3d3d;
+
+  --color-mist-50: #fafaf9;
+  --color-mist-100: #f4f3f1;
+  --color-mist-200: #e9e7e3;
+  --color-mist-300: #d6d3cd;
+  --color-mist-400: #a8a49c;
+  --color-mist-500: #7d7a73;
+
+  --color-gold-50: #faf6ee;
+  --color-gold-100: #f3ead8;
+  --color-gold-200: #e6d3ad;
+  --color-gold-300: #d6b97f;
+  --color-gold-400: #c9a45c;
+  --color-gold-500: #b8893e;
+  --color-gold-600: #9a6f30;
+  --color-gold-700: #7a5627;
+
+  --ease-luxe: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --animate-marquee: marquee 45s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@layer base {
+  /* Netralkan style global demo template agar layout LensaKarya full-width */
+  :root {
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: normal;
+    color-scheme: light;
+    color: var(--color-ink-900);
+    background: #fff;
+  }
+  #root {
+    width: auto;
+    max-width: none;
+    margin: 0;
+    text-align: left;
+    border-inline: 0;
+    display: block;
+    min-height: 100svh;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-white font-sans text-ink-900 antialiased;
+  }
+  h1, h2, h3, h4 {
+    @apply font-serif font-medium tracking-tight;
+    color: inherit;
+  }
+  ::selection {
+    @apply bg-gold-200 text-ink-950;
+  }
+}
+
+@layer components {
+  .container-luxe {
+    @apply mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-10;
+  }
+  .eyebrow {
+    @apply inline-flex items-center gap-3 text-[11px] font-semibold uppercase tracking-[0.32em] text-gold-600;
+  }
+  .eyebrow::before {
+    content: "";
+    @apply block h-px w-8 bg-gold-400;
+  }
+  .btn-dark,
+  .btn-gold,
+  .btn-outline,
+  .btn-ghost-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-7 py-3.5 text-sm font-semibold tracking-wide transition-all duration-500 ease-luxe focus:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-dark {
+    @apply bg-ink-950 text-white hover:bg-gold-500 hover:shadow-[0_12px_30px_-10px_rgba(184,137,62,0.6)];
+  }
+  .btn-gold {
+    @apply bg-gold-400 text-ink-950 hover:bg-white;
+  }
+  .btn-outline {
+    @apply border border-ink-900/15 text-ink-900 hover:border-ink-950 hover:bg-ink-950 hover:text-white;
+  }
+  .btn-ghost-light {
+    @apply border border-white/30 text-white backdrop-blur-sm hover:border-white hover:bg-white hover:text-ink-950;
+  }
+  .card-luxe {
+    @apply rounded-3xl border border-mist-200 bg-white transition-all duration-500 ease-luxe;
+  }
+}
+
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .img-zoom {
+    transition: transform 1.2s var(--ease-luxe);
+  }
+  .group:hover .img-zoom {
+    transform: scale(1.06);
+  }
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+}
+

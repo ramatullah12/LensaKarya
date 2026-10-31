@@ -1,0 +1,13 @@
+{
+  "buildCommand": "cd lensakarya && npm run build",
+  "outputDirectory": "lensakarya/dist",
+  "installCommand": "cd lensakarya && npm install",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
+

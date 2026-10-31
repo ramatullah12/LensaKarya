@@ -1,3 +1,8 @@
+/* LensaKarya: Tailwind CSS + design system */
+@import "./styles/lensakarya.css";
+
+/* Style bawaan template Vite (dipertahankan, prioritas terendah via layer) */
+@layer template {
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -108,4 +113,5 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
 }
